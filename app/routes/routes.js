@@ -1,28 +1,29 @@
 const express = require('express')
 const router = express.Router();
+const User = require('../models/User')
 
 //Post Method
-router.post('/post', (req, res) => {
+router.post('/users', (req, res) => {
     res.send('Post API')
 })
 
 //Get all Method
-router.get('/getAll', (req, res) => {
+router.get('/users', (req, res) => {
     res.send('Get All API')
 })
 
 //Get by ID Method
-router.get('/getOne/:id', (req, res) => {
+router.get('/users/:id', (req, res) => {
     res.send('Get by ID API')
 })
 
 //Update by ID Method
-router.patch('/update/:id', (req, res) => {
+router.patch('/users/:id', (req, res) => {
     res.send('Update by ID API')
 })
 
 //Delete by ID Method
-router.delete('/delete/:id', (req, res) => {
+router.delete('/users/:id', (req, res) => {
     res.send('Delete by ID API')
 })
 
