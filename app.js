@@ -1,9 +1,11 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
+const dotenv = require('dotenv')
+dotenv.config();
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 app.use(cors())
 app.get('/', (req, res) => {
