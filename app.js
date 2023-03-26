@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const dotenv = require('dotenv')
+const routes = require('./app/routes/routes')
 
 dotenv.config();
 
@@ -29,6 +30,9 @@ app.use(cors())
 /**
  * Routes
  */
+
+app.use('/api', routes);
+
 app.get('/', (req, res) => {
     res.send('Hello world')
 })
