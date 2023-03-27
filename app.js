@@ -7,6 +7,7 @@ const routes = require('./app/routes/routes')
 dotenv.config();
 
 //database setup
+mongoose.set("strictQuery", false);
 const mongoString = process.env.DATABASE_URL
 mongoose.connect(mongoString);
 const database = mongoose.connection;

@@ -1,11 +1,9 @@
 const express = require('express')
 const router = express.Router();
 const User = require('../models/User')
-
+const {createUser} = require('../controllers/UserController')
 //Post Method
-router.post('/users', (req, res) => {
-    res.send('Post API')
-})
+router.post('/users', createUser)
 
 //Get all Method
 router.get('/users', (req, res) => {
