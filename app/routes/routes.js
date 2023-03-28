@@ -1,9 +1,12 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+
+var jsonParser = bodyParser.json();
+
 const router = express.Router();
-const User = require('../models/User')
 const {createUser} = require('../controllers/UserController')
 //Post Method
-router.post('/users', createUser)
+router.post('/users',jsonParser, createUser)
 
 //Get all Method
 router.get('/users', (req, res) => {

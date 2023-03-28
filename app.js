@@ -1,4 +1,5 @@
 const express = require("express")
+const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const dotenv = require('dotenv')
@@ -7,8 +8,8 @@ const routes = require('./app/routes/routes')
 dotenv.config();
 
 //database setup
-mongoose.set("strictQuery", false);
 const mongoString = process.env.DATABASE_URL
+mongoose.set("strictQuery", false);
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 
@@ -18,7 +19,7 @@ database.on('error', (error) => {
 })
 
 database.once('connected', () => {
-    console.log('Database Connected');
+    console.log("Database is connected")
 })
 
 
