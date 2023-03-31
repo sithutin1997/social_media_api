@@ -1,31 +1,25 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const {createUser, deleteUser, updateUser, getUsers} = require('../controllers/UserController')
 
-var jsonParser = bodyParser.json();
+const jsonParser = bodyParser.json();
 
 const router = express.Router();
-const {createUser} = require('../controllers/UserController')
-//Post Method
+//Create a user
 router.post('/users',jsonParser, createUser)
 
-//Get all Method
-router.get('/users', (req, res) => {
-    res.send('Get All API')
-})
+//Get all User
+router.get('/users', jsonParser, getUsers)
 
 //Get by ID Method
 router.get('/users/:id', (req, res) => {
     res.send('Get by ID API')
 })
 
-//Update by ID Method
-router.patch('/users/:id', (req, res) => {
-    res.send('Update by ID API')
-})
+//Update by ID
+router.patch('/users/:id',jsonParser, updateUser)
 
-//Delete by ID Method
-router.delete('/users/:id', (req, res) => {
-    res.send('Delete by ID API')
-})
+//Delete by ID 
+router.delete('/users/:id',jsonParser, deleteUser)
 
 module.exports = router;
