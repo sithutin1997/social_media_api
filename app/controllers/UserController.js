@@ -10,6 +10,20 @@ exports.getUsers = async( req, res) => {
   }
 }
 
+//Get user by Id
+exports.getUser = async (req,res) => {
+  const id = req.params.id
+  try {
+    const user = await UserModel.findById(id)
+    if(user !== 0 || user.length > 0) {
+      res.status(200).json(user)
+    } else {
+      res.status(404).json({message: "There is no user"})
+    }
+  } catch(error) {
+    res.status(500).json({message: error.message})
+  }
+}
 //Create user
 exports.createUser = async (req, res) => {
   const { email } = req.body

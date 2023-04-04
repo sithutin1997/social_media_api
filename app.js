@@ -3,7 +3,8 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const dotenv = require('dotenv')
-const routes = require('./app/routes/routes')
+const userRoute = require('./app/routes/user')
+const postRoute = require('./app/routes/post')
 
 dotenv.config();
 
@@ -33,7 +34,8 @@ app.use(cors())
  * Routes
  */
 
-app.use('/api', routes);
+app.use('/api', userRoute);
+app.use('/api', postRoute);
 
 app.get('/', (req, res) => {
     res.send('Hello world')
