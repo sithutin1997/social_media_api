@@ -20,13 +20,12 @@ database.on('error', (error) => {
 })
 
 database.once('connected', () => {
-    console.log("Database is connected")
+    // console.log("Database is connected")
 })
 
 
 //app setup
 const app = express()
-const port = process.env.PORT
 
 app.use(cors())
 
@@ -38,9 +37,7 @@ app.use('/api', userRoute);
 app.use('/api', postRoute);
 
 app.get('/', (req, res) => {
-    res.send('Hello world')
+    res.sendFile(__dirname + "/index.html");
 })
 
-app.listen(port, () => {
-    console.log(`Hello world server is listening on ${port}` )
-})
+module.exports = app
